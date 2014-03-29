@@ -1,0 +1,143 @@
+html {
+  background-image:url('../img/wallpaper.jpg');
+  background-repeat:no-repeat;
+  background-size:cover;
+  text-align:center;
+  margin:0px;
+  font-family:Arial; 
+}
+html, body {
+  height:100%;
+}
+a {
+  color:#000000;
+  text-decoration:none;
+}
+a:hover {
+  color:#666666;
+}
+
+div#mainBlock {
+  width:80%;
+  background-color:#FFFFFF;
+  border:1px solid #000000;
+  margin:0px auto;
+  border-radius:10px;
+  padding:10px;
+  display:inline-block;
+}
+div#content {
+  min-height:400px;
+}
+
+div#pageContent {
+  min-height: 95%;
+  margin-bottom: -20px;
+}
+div#installText {
+  text-align:left;
+  font-size:17px;
+}
+div#installText #learnMoreButton {
+  color:blue;
+}
+div#installText #learnMoreButton:hover {
+  color:green;
+}
+div#installText #installButton{
+  background-color:#F0F0F0;
+  color:blue;
+  font-size:18px;
+  border:1px solid green;
+  border-radius:10px;
+  padding:10px;
+}
+div#installText #installButton:hover {
+  color:green;
+  border:1px solid blue;
+}
+
+footer {
+  width:80%;
+  height:20px;
+  margin:0px auto;
+  font-size:11px;
+  font-weight:bold;
+  font-family:Verdana, Geneva, sans-serif;
+  margin-top:10px;
+}
+div#menu {
+  width:100%;
+  min-height:110px;
+  text-align:left;
+  border-bottom:1px solid black;
+}
+div#menuHeader {
+  font-size:24px;
+  font-weight:bold;
+  float:left;
+  width:100%;
+}
+div#menuHeader #subHeader {
+  font-size:14px;
+  font-weight:normal;
+}
+div#menu .menuItem {
+  color:#000000;
+  font-size:14px;
+  font-weight:bold;
+  margin:10px;
+  float:left;
+}
+div#menu .menuItem:hover {
+  color:red;
+  cursor:pointer;
+}
+div#aboutMovie {
+  float:left;
+  width:60%;
+}
+div#movieText {
+  float:left;
+  width:35%;
+  color:#000000;
+  font-size:18px;
+  vertical-align:top;
+  margin-top:20px;
+  font-weight:bold;
+  line-height:25px;
+  margin-left:10px;
+  opacity:0;
+}
+img#mainImg{
+  border:1px solid #000000;
+  width:100%;
+  opacity:0;
+}
+span#sitesListingHeader {
+  text-align:left;
+  float:left;
+  width:100%;
+  font-size:17px;
+}
+div#sitesListing {
+  float:left;
+  width:50%;
+  min-height:400px;
+  overflow:auto;
+  text-align:left;
+  font-weight:bold;
+  font-size:12px;
+  line-height:18px;
+}
+div#requestDiv {
+  width:100%;
+  text-align:center;
+}
+div#requestDiv input {
+  border-radius:5px;
+}
+div#requestDiv input[type="text"] {
+  width:200px;
+  font-size:12px;
+}

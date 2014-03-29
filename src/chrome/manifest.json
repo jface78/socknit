@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "SockNit Article Comment Blocker",
+  "version": "1.2",
+  "description": "This extension blocks annoying user comments on major news & media sites.",
+  "homepage_url": "http://www.socknit.com",
+  "icons": { "19": "img/sock19_blue.png",
+             "48": "img/sock48_blue.png",
+             "128": "img/sock128_blue.png",
+             "19_on": "img/sock19_red.png",
+             "19_disabled": "img/sock19_gray.png"
+            },
+  "page_action": {
+    "default_icon": "img/sock19_red.png",
+    "default_popup": "manager.html"
+  },
+  "background": {
+    "scripts": ["js/socknit_event.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/socknit_content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": [ "cookies", "tabs", "http://*/*", "https://*/*"]
+}

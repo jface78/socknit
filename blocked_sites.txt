@@ -1,0 +1,1 @@
+cnn,huffingtonpost,nbcnews,cbsnews,bbc,independent.co.uk,usatoday,yahoonews,nytimes,foxnews,foxnation,washingtonpost,dailymail.co.uk,latimes,reuters,rt.com,guardianlv,washingtonblade,salon,ap.org,smh.com.au,spiegel.de,guardian.co.uk,aljazeera,break.com,hulu,wsj.com,cbc.ca,telegraph.co.uk,jpost.com,nltimes.nl,businessweek,tokyotimes,wired.com,upi.com
