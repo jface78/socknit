@@ -302,9 +302,8 @@ function requestPage() {
   $(div).attr("id", "requestDiv");
   $(div).text("Submit a site you'd like added to Socknit's comment filter.");
   $(div).append("<br />");
-  $(div).append("Note: Social media platforms (facebook, twitter) will not be considered.");
-  $(div).append("<br />");
-  $(div).append("Unfortunately, YouTube isn't currently blockable.");
+  $(div).append("A direct link to a specific example article containing the comments you'd like socked would be most helpful.<br /><br />");
+  $(div).append("Note: Social media platforms (facebook, twitter) will not be considered, and not all sites are sockable. It depends on how they were designed.");
   $(div).append("<br /><br />");
   var input = document.createElement("input");
   $(input).attr("type", "text");

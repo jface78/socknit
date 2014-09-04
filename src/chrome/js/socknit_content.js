@@ -1,22 +1,43 @@
 var sitesArray = [];
 var elementsArray = [];
 var domain;
-var displayType = "";
+var displayType;
+var observer;
+var isActive = false;
 
 chrome.extension.onMessage.addListener(function(msg, sender, sendResponse) {
   if (msg.getSites) {
     getSitesList();
+    if (!observer) {
+      addObserver();
+    }
   }
   if (msg.showHidden) {
+    isActive = false;
     unhideElements();
   }
   if (msg.hideVisible) {
+    isActive = true;
     hideElementIfExists();
   }
   if (msg.checkPageReady) {
     sendResponse(true);
   }
 });
+
+function addObserver() {
+  observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (isActive) {
+        hideElementIfExists();
+      }
+    });    
+  });
+  // configuration of the observer:
+  var config = { attributes: true, childList: true, characterData: true };
+  // pass in the target node, as well as the observer options
+  observer.observe(document.body, config);
+}
 
 function unhideElements() {
   if (!domain) {
@@ -27,15 +48,15 @@ function unhideElements() {
   for (var i = 0; i < elementsArray.length; i++) {
     var id = document.getElementById(elementsArray[i]);
     if (id) {
-      id.style.visibility = "visible";
-      id.style.display = displayType;
+      //id.style.visibility = "visible";
+      id.style.display = 'inline';
       matched = true;
     }
     var nodes = document.getElementsByClassName(elementsArray[i]);
     if (nodes.length > 0) {
       for (var s=0; s < nodes.length; s++) {
-        nodes[s].style.visibility = "visible";
-        nodes[s].style.display = displayType;
+        nodes[s].style.display = 'inline';
+        //nodes[s].style.visibility = "visible";
       }
       matched = true;
     }
@@ -44,16 +65,19 @@ function unhideElements() {
 }
 
 function notifyExtensionActive() {
+  isActive = true;
   chrome.runtime.sendMessage({setIconOn: true}, function(response) {
     //
   });
 }
 function notifyExtensionInactive() {
+  isActive = false;
   chrome.runtime.sendMessage({inactive: true}, function(response) {
     //
   });
 }
 function notifyExtensionUnsupported() {
+  isActive = false;
   chrome.runtime.sendMessage({unsupported: true}, function(response) {
     //
   });
@@ -72,7 +96,7 @@ function getElementsList() {
       }
     }
   }
-  xmlhttp.open("GET","http://socknit.appspot.com/classes_" + domain + ".txt?cachebust=" + cacheBust, true);
+  xmlhttp.open("GET",location.protocol + "//socknit.appspot.com/classes_" + domain + ".txt?cachebust=" + cacheBust, true);
   xmlhttp.send();
 }
 
@@ -89,7 +113,7 @@ function getSitesList() {
       }
     }
   }
-  xmlhttp.open("GET","http://socknit.appspot.com/blocked_sites.txt?cachebust=" + cacheBust, true);
+  xmlhttp.open("GET", location.protocol + "//socknit.appspot.com/blocked_sites.txt?cachebust=" + cacheBust, true);
   xmlhttp.send();
 }
 
@@ -103,15 +127,16 @@ function hideElementIfExists() {
     var id = document.getElementById(elementsArray[i]);
     if (id) {
       displayType = id.style.display;
-      id.style.visibility = "hidden";
       id.style.display = "none";
+      //id.style.visibility = "hidden";
       matched = true;
     }
     var nodes = document.getElementsByClassName(elementsArray[i]);
     if (nodes.length > 0) {
       for (var s=0; s < nodes.length; s++) {
-        nodes[s].style.visibility = "hidden";
+        displayType = nodes[s].style.display;
         nodes[s].style.display = "none";
+        //nodes[s].style.visibility = "hidden";
       }
       matched = true;
     }

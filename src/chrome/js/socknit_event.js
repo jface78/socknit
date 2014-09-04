@@ -87,22 +87,15 @@ function toggleIcon(value) {
   var path = 'img/sock19_blue.png';
   if (value == "on") {
     path = 'img/sock19_red.png';
-    chrome.pageAction.show(tabs[0].id);
   } else if (value == "unsupported") {
     path = 'img/sock19_gray.png';
-    chrome.pageAction.show(tabs[0].id);
   }
-  chrome.tabs.query({
-    currentWindow: true,
-    active: true
-  }, function(tabs) {
-    if(tabs.length === 0) {
-      return;
-    }
-    chrome.browserAction.setIcon({
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
+    chrome.pageAction.setIcon({
       path: path,
       tabId: tabs[0].id
     });
+    chrome.pageAction.show(tabs[0].id);
   });
 }
 
