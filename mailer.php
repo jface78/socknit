@@ -1,6 +1,6 @@
 <?php
 if ($_GET['type'] == "site") {
-  $to = "jface@jonathanface.com";
+  $to = "me@jonathanface.com";
   $subject = "socknit site submission";
   $message = "A user has requested the following site be added to socknit's filter list\n";
   $message .= $_GET['value'];
