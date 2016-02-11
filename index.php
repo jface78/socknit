@@ -1,44 +1,86 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Socknit Browser Extension - Put a Sock-n-it.</title>
-<meta name="description" content="Socknit Browser Extension to block annoying news/media article comments.">
-<meta name="keywords" content="chrome, firefox, socknit, extension, plugin, browser, block, comments, commentary, news sites, media, youtube, cnn, bbc, fox">
-<meta name="author" content="Jonathan Face">
-<meta charset="UTF-8">
-<link rel="shortcut icon" href="./img/favicon.ico">
-<link rel="stylesheet" type="text/css" href="css/main.css">
-<link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/pjefaeadmaaefnhmbbnacbijblmmdenc">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-<!--
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui.min.js"></script>
--->
-<script type="text/javascript" src="js/main.js"></script>
+  <head>
+    <title>Socknit Comment Blocker</title>
+    <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/pjefaeadmaaefnhmbbnacbijblmmdenc">
+    <link rel="shortcut icon" href="img/favicon.ico.png" />
+    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">  
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="css/main.css" type="text/css">
 
-</head>
-<body>
-<div id="pageContent">
-<div id="mainBlock">
-<div id="menu">
-<div id="menuHeader">
-<div>
-<img src="img/sock_red.png" alt="socknit">
-<span style="position:relative;top:-15px;">Socknit Comment Remover</span>
-</div>
-<div id="subHeader">A Chrome browser extension to hide annoying internet comment sections on popular websites.</div>
-</div><br />
-<div class="menuItem" id="install" style="text-decoration:underline" onclick="javascript:installPage();">Install</div>
-<div class="menuItem" id="about" onclick="javascript:aboutPage();">About</div>
-<div class="menuItem" id="sites" onclick="javascript:sitesPage();">List of Sites</div>
-<div class="menuItem" id="request" onclick="javascript:requestPage();">Request a Site</div>
-</div><br />
-<div id="content">
-<noscript>Sorry, this site requires JavaScript.</noscript>
-</div>
-</div>
-</div><br />
-<footer>Copyright 2013 <a href="http://www.jonathanface.com" target="new">Jonathan Face</a></footer>
-</body>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/s/ju-1.11.4/dt-1.10.10/datatables.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+  </head>
+  <body>
+      <header>
+        <div class="title">
+          <a href="#homeframe">
+            <img style="vertical-align:middle;" src="img/header.png" title="socknit article comment blocker" alt="socknit logo">
+            <span class="logotext">ARTICLE<br>COMMENT<br>BLOCKER</span>
+          </a>
+        </div>
+        <div class="menu">
+          <ul>
+            <li><a href="#huhframe" title="(about)">Huh?</a></li>
+            <li><a href="#whichframe" title="(list of blocked sites)">Which?</a></li>
+            <li><a href="#howframe" title="(submit a site)">How?</a></li>
+          </ul>
+        </div>
+      </header>
+      <div class="frame" style="background-color:#CCFFCC;" id="homeframe">
+        <main>
+          <div style="text-align:center;">
+            <img src="img/logo.png">
+          </div>
+          <div style="font-size:36px;">Blocking annoying comment sections since 2013</div>
+          <div style="padding:50px;margin-top:50px;" id="installDiv"><a href="#" id="installButton">Install Chrome Extension</a></div>
+        </main>
+      </div>
+      <div class="frame" style="background-color:#FFFFCC;" id="huhframe">
+        <main>
+          <div style="font-size:36px;">
+          Socknit is a Chrome extension that "sanitizes" news and entertainment websites by hiding user comment sections on every page.
+          </div>
+          <div class="owl-carousel">
+            <div class="item"><img src="img/screenshot_01.jpg" alt="demo"><h4>1</h4></div>
+            <div class="item"><img src="img/screenshot_02.jpg" alt="demo"><h4>2</h4></div>
+            <div class="item"><img src="img/screenshot_03.jpg" alt="demo"><h4>3</h4></div>
+          </div>
+          <div style="font-size:14px;">See, 'cause it puts a sock in it... get it :(</div>
+        </main>
+      </div>
+      <div class="frame" style="background-color:#ffd4e5;" id="whichframe">
+        <main>
+          <div id="sitesCount" style="margin-bottom:10px;font-size:18px;font-weight:bold;"></div>
+          <table id="sitesList">
+            <thead>
+              <tr>
+                <th>Site Name</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </main>
+      </div>
+      <div class="frame" style="background-color:#dbdcff;" id="howframe">
+        <main>
+          <div>
+            Submit a site you'd like added to Socknit's comment filter.
+A direct link to a specific example article containing the comments you'd like socked would be most helpful.
+<br><br>
+Note: Social media platforms (facebook, twitter) will not be considered, and not all sites are sockable. It depends on how they were designed.
+<br><br>
+<span class="formLabel">Domain: </span>
+            <input id="url" type="text" >
+            <a href="#" id="submitLinkButton">Submit</a><br><br>
+            <div id="formResults" style="font-weight:bold;"></div>
+          </div>
+        </main>
+      </div>
+  </body>
 </html>
