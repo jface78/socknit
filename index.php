@@ -1,7 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
   <head>
     <title>Socknit Comment Blocker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Author" content="Socknit.com">
+    <meta name="Description" content="Chrome plug-in to block annoying comment sections on news websites.">
+    <meta name="Keywords" content="news, comments, blocker, block, article, articles, extension, plugin, sanitizer">
+    <meta name="google-site-verification" content="tCzoBF12FHdMffuuznVpxgh0bMdnLVl4tVIUKmzLJ0k" />
     <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/pjefaeadmaaefnhmbbnacbijblmmdenc">
     <link rel="shortcut icon" href="img/favicon.ico.png" />
     <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">  
